@@ -29,6 +29,11 @@ module.exports = function (RED) {
                     encoding: 'base64'
                 };
                 const page = await browser.newPage();
+                await page.setViewport({
+                    width: (config.width ? parseInt(config.width) : 800),
+                    height: (config.height ? parseInt(config.height) : 600),
+                    deviceScaleFactor: (config.scale ? parseInt(config.scale) : 1),
+                });
                 if (config.wait === 'delay') {
                     await page.goto(url)
                     await new Promise(resolve => setTimeout(resolve, config.delay));

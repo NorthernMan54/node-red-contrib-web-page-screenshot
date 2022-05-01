@@ -22,7 +22,10 @@
             wait: {
                 value: 'load',
                 required: true
-            }
+            },
+            width: { value: 800 },
+            height: { value: 600 },
+            scale: { value: 2 }
         },
         inputs: 1,
         outputs: 1,
@@ -76,6 +79,18 @@
     <div class="form-row" id="form-row-delay">
         <label for="node-input-delay">Delay</label>
         <input type="number" id="node-input-delay" min="0" step="1" max="30000" placeholder="duration in milliseconds">
+    </div>
+    <div class="form-row">
+        <label for="node-input-width">Browser Width</label>
+        <input type="number" id="node-input-width" placeholder="800">
+    </div>
+    <div class="form-row">
+        <label for="node-input-height">Browser Height</label>
+        <input type="number" id="node-input-height" placeholder="600">
+    </div>
+    <div class="form-row">
+        <label for="node-input-scale">Scale</label>
+        <input type="number" id="node-input-scale" placeholder="1">
     </div>
 </script>
 
