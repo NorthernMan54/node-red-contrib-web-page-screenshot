@@ -35,10 +35,10 @@ module.exports = function (RED) {
                     deviceScaleFactor: (config.scale ? parseInt(config.scale) : 1),
                 });
                 if (config.wait === 'delay') {
-                    await page.goto(url)
+                    await page.goto(url, { timeout: 0 })
                     await new Promise(resolve => setTimeout(resolve, config.delay));
                 } else {
-                    await page.goto(url, { waitUntil: config.wait });
+                    await page.goto(url, { waitUntil: config.wait, timeout: 0 });
                 }
                 const base64String = await page.screenshot(option);
                 await browser.close();

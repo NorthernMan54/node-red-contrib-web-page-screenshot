@@ -34,10 +34,10 @@ module.exports = function (RED) {
 
                 const page = await browser.newPage();
                 if (config.wait === 'delay') {
-                    await page.goto(url)
+                    await page.goto(url, { timeout: 0 })
                     await new Promise(resolve => setTimeout(resolve, config.delay));
                 } else {
-                    await page.goto(url, { waitUntil: config.wait });
+                    await page.goto(url, { waitUntil: config.wait, timeout: 0 });
                 }
 
                 if (className) {
